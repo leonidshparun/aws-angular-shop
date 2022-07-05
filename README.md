@@ -1,10 +1,11 @@
+# Links
+
+[CloudFront](https://d1zyq6lt9igoir.cloudfront.net)  
+[S3-website](http://my-aws-cloud-shop.s3-website-us-east-1.amazonaws.com/) (Is unavailable)
+
 # Shop Angular Cloudfront
 
 Angular version: ~12.
-
-Repo maintainers:
-
-- [Sergey Gultyayev](https://github.com/gultyaev)
 
 ## The purpose
 
@@ -13,12 +14,6 @@ The repository was created to have an Angular version of e-shop for EPAM NodeJS 
 ## NodeJS AWS course integration
 
 All the necessary API endpoints are in the environments files `environment.ts` (for dev builds). Also it contains feature flags to enable/disable endpoints invocations from within the app so to ensure that you don't get errors for not implemented API endpoints.
-
-## Contribution
-
-Create an issue with the detailed description of the improvement/issue.
-
-If you would like to help implementing some feature, you should ask the maintainers for approval so to ensure that the feature is desired in the repository and no efforts go wasted.
 
 ## Get up and running
 
