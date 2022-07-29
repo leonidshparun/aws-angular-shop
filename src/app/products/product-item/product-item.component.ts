@@ -29,6 +29,16 @@ export class ProductItemComponent implements OnInit {
     return this.product.id;
   }
 
+  get isCartButtonDisabled(): boolean {
+    return this.product.count === 0;
+  }
+
+  get cartButtonTooltip(): string {
+    return this.isCartButtonDisabled
+      ? 'Out of stock'
+      : `Add ${this.product.title} to cart`;
+  }
+
   ngOnInit(): void {
     this.countInCart$ = this.cartService.cart$.pipe(
       map((cart) => {
