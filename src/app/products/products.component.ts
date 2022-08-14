@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './products.service';
-import { Observable } from 'rxjs';
-import { Product } from './product.interface';
+import { BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-products',
@@ -9,9 +9,13 @@ import { Product } from './product.interface';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  readonly products$: Observable<
-    Product[]
-  > = this.productsService.getProducts();
+  public loading$ = new BehaviorSubject(true);
+
+  readonly products$ = this.productsService.getProducts().pipe(
+    tap(() => {
+      this.loading$.next(false);
+    })
+  );
 
   constructor(private readonly productsService: ProductsService) {}
 

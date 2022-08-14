@@ -1,8 +1,12 @@
 <main class="container">
-  <app-product-item
-    *ngFor="let product of products$ | async; let i = index"
-    [product]="product"
-    [index]="i"
-  >
-  </app-product-item>
+  <mat-spinner *ngIf="loading$ | async"></mat-spinner>
+
+  <section class="product-list">
+    <app-product-item
+      *ngFor="let product of products$ | async; let i = index"
+      [product]="product"
+      [index]="i"
+    >
+    </app-product-item>
+  </section>
 </main>
