@@ -3,6 +3,13 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-list {
   display: grid;
   grid-template-columns: 1fr;
 

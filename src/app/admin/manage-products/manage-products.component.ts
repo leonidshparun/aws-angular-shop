@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../../products/product.interface';
 import { ProductsService } from '../../products/products.service';
 import { ManageProductsService } from './manage-products.service';
+import { NotificationService } from '../../core/notification.service';
 
 @Component({
   selector: 'app-manage-products',
@@ -19,6 +20,7 @@ export class ManageProductsComponent implements OnInit {
   constructor(
     private readonly productsService: ProductsService,
     private readonly manageProductsService: ManageProductsService,
+    private readonly notificationService: NotificationService,
     private readonly cdr: ChangeDetectorRef
   ) {}
 
@@ -34,6 +36,9 @@ export class ManageProductsComponent implements OnInit {
     this.manageProductsService
       .uploadProductsCSV(this.selectedFile)
       .subscribe(() => {
+        this.notificationService.showSuccess(
+          `File ${this.selectedFile?.name} successfully uploaded`
+        );
         this.selectedFile = null;
         this.cdr.markForCheck();
       });
